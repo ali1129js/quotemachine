@@ -2,57 +2,45 @@
  * @Author: Ali
  * @Date:   2018-12-24T12:03:11+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-12-30T10:28:03+01:00
+ * @Last modified time: 2018-12-30T16:01:39+01:00
  */
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Fragment } from "react";
 
-class QuoteMachine extends Component {
-  constructor() {
-    super();
-    this.state = {
-      quoteText: null,
-      quoteAuthor: null,
-      color: "white"
-    };
-    this.getRandQuote = this.getRandQuote.bind(this);
-  }
-  componentDidMount() {
-    this.getRandQuote();
-  }
-  getRandQuote() {
-    axios
-      .get(
-        "https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"
-      )
-      .then(res => {
-        console.log(res.data);
-        this.setState({
-          quoteText: res.data.quoteText,
-          quoteAuthor: res.data.quoteAuthor,
-          color: "#" + Math.floor(Math.random() * 16777215).toString(16)
-        });
-      });
-  }
-
-  render() {
-    const { quoteText, quoteAuthor, color } = this.state;
-    return (
-      <div className="row" style={{ background: color }}>
-        QuoteMachine
-        <br />
-        {quoteText}
-        <br />
-        <strong> {quoteAuthor} </strong>
-        <br />
-        <button onClick={this.getRandQuote}>Show a random quote</button>
+const QuoteMachine = props => (
+  <Fragment>
+    <div className="">
+      <div className="row">
+        <div className="col">
+          {props.newQuote.quoteText}
+          <br />
+          <strong> {props.newQuote.quoteAuthor} </strong>
+          <br />
+        </div>
       </div>
-    );
-  }
-}
+      <div className="col">
+        <button
+          className="btn btn-outline-primary btn-lg"
+          onClick={props.getRandQuote}
+        >
+          Show a random quote
+        </button>
+        <button
+          className="btn btn-outline-primary btn-lg"
+          onClick={props.getRandQuote}
+        >
+          Tweet this Quote
+        </button>
+      </div>
+    </div>
+  </Fragment>
+);
+
 export default QuoteMachine;
 /*
 const URL2 = 'https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en'
 const URL =
   "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?";
+
+  () => {
+  this.props.newQuote(this.state.color);
 */
