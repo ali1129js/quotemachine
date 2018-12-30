@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-24T12:03:11+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-12-30T10:16:17+01:00
+ * @Last modified time: 2018-12-30T10:28:03+01:00
  */
 import React, { Component } from "react";
 import axios from "axios";
@@ -38,7 +38,7 @@ class QuoteMachine extends Component {
   render() {
     const { quoteText, quoteAuthor, color } = this.state;
     return (
-      <div className="" style={{ background: color }}>
+      <div className="row" style={{ background: color }}>
         QuoteMachine
         <br />
         {quoteText}
