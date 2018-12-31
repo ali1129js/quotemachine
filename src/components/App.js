@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-23T11:19:57+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-12-30T16:01:43+01:00
+ * @Last modified time: 2018-12-31T16:55:31+01:00
  */
 
 import React, { Component } from "react";
@@ -21,6 +21,7 @@ class App extends Component {
       }
     };
     this.getRandQuote = this.getRandQuote.bind(this);
+    this.tweetQoute = this.tweetQoute.bind(this);
   }
   componentDidMount() {
     this.getRandQuote();
@@ -41,6 +42,14 @@ class App extends Component {
         });
       });
   }
+  tweetQoute = () => {
+    const text = this.state.newQuote.quoteText;
+    window.open(
+      "http://twitter.com/share?&text=" + encodeURIComponent(text),
+      "",
+      "left=0,top=0,width=550,height=450,personalbar=0,toolbar=0,scrollbars=0,resizable=0"
+    );
+  };
   render() {
     return (
       <div
@@ -48,10 +57,13 @@ class App extends Component {
         style={{ background: this.state.newQuote.color }}
       >
         <header className="App-header">React Quote machine</header>
-        <QuoteMachine
-          newQuote={this.state.newQuote}
-          getRandQuote={this.getRandQuote}
-        />
+        <div className="quotes" style={{ marginTop: "220px" }}>
+          <QuoteMachine
+            newQuote={this.state.newQuote}
+            getRandQuote={this.getRandQuote}
+            tweetQoute={this.tweetQoute}
+          />
+        </div>
       </div>
     );
   }

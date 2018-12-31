@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-24T12:03:11+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-12-30T16:01:39+01:00
+ * @Last modified time: 2018-12-31T16:53:57+01:00
  */
 import React, { Fragment } from "react";
 
@@ -26,7 +26,7 @@ const QuoteMachine = props => (
         </button>
         <button
           className="btn btn-outline-primary btn-lg"
-          onClick={props.getRandQuote}
+          onClick={props.tweetQoute}
         >
           Tweet this Quote
         </button>
