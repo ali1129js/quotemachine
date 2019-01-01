@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-24T12:03:11+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-01T18:17:24+01:00
+ * @Last modified time: 2019-01-01T19:17:50+01:00
  */
 import React, { Fragment } from "react";
 
@@ -10,13 +10,13 @@ const QuoteMachine = props => (
   <Fragment>
     <div className="container">
       <div className="row">
-        <div className="col">
+        <div className="col-sm">
           <div className="jumbotron jumbotron-fluid">
-            <h1 className="display-4">{props.newQuote.quoteText}</h1>
+            <h5 className="display-5">{props.newQuote.quoteText}</h5>
             <p className="lead"> {props.newQuote.quoteAuthor}</p>
             <hr className="my-4" />
             <button
-              className="btn btn-outline-primary btn-lg  mr-md-5"
+              className="btn btn-primary btn-lg m-3"
               onClick={props.getRandQuote}
             >
               Show a random quote
@@ -36,11 +36,3 @@ const QuoteMachine = props => (
 );
 
 export default QuoteMachine;
-/*
-const URL2 = 'https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en'
-const URL =
-  "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?";
-
-  () => {
-  this.props.newQuote(this.state.color);
-*/

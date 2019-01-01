@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-23T11:19:57+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-01T15:01:45+01:00
+ * @Last modified time: 2019-01-01T19:09:45+01:00
  */
 
 import React, { Component } from "react";
@@ -44,8 +44,13 @@ class App extends Component {
   }
   tweetQoute = () => {
     const text = this.state.newQuote.quoteText;
+    const quoteAuthor = this.state.newQuote.quoteAuthor;
+
     window.open(
-      "http://twitter.com/share?&text=" + encodeURIComponent(text),
+      "https://twitter.com/intent/tweet?text=" +
+        encodeURIComponent(text) +
+        " " +
+        encodeURIComponent(quoteAuthor),
       "",
       "left=0,top=0,width=550,height=450,personalbar=0,toolbar=0,scrollbars=0,resizable=0"
     );
@@ -62,7 +67,7 @@ class App extends Component {
           minWidth: "100%"
         }}
       >
-        <div className="quotes" style={{ margin: "180px", width: "auto" }}>
+        <div className="quotes" style={{ marginTop: "20px" }}>
           <QuoteMachine
             newQuote={this.state.newQuote}
             getRandQuote={this.getRandQuote}
