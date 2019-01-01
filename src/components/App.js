@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-23T11:19:57+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-01T14:46:58+01:00
+ * @Last modified time: 2019-01-01T15:01:45+01:00
  */
 
 import React, { Component } from "react";
@@ -57,11 +57,12 @@ class App extends Component {
         style={{
           position: "fixed",
           background: this.state.newQuote.color,
+          transition: "all .7s ease-in",
           minHeight: "100%",
           minWidth: "100%"
         }}
       >
-        <div className="quotes" style={{ margin: "180px" }}>
+        <div className="quotes" style={{ margin: "180px", width: "auto" }}>
           <QuoteMachine
             newQuote={this.state.newQuote}
             getRandQuote={this.getRandQuote}
