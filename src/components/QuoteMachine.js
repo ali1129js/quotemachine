@@ -2,13 +2,13 @@
  * @Author: Ali
  * @Date:   2018-12-24T12:03:11+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-12-31T16:53:57+01:00
+ * @Last modified time: 2019-01-01T13:16:06+01:00
  */
 import React, { Fragment } from "react";
 
 const QuoteMachine = props => (
   <Fragment>
-    <div className="">
+    <div className="container">
       <div className="row">
         <div className="col">
           {props.newQuote.quoteText}
@@ -17,19 +17,21 @@ const QuoteMachine = props => (
           <br />
         </div>
       </div>
-      <div className="col">
-        <button
-          className="btn btn-outline-primary btn-lg"
-          onClick={props.getRandQuote}
-        >
-          Show a random quote
-        </button>
-        <button
-          className="btn btn-outline-primary btn-lg"
-          onClick={props.tweetQoute}
-        >
-          Tweet this Quote
-        </button>
+      <div className="row">
+        <div className="col">
+          <button
+            className="btn btn-outline-primary btn-lg"
+            onClick={props.getRandQuote}
+          >
+            Show a random quote
+          </button>
+          <button
+            className="btn btn-outline-primary btn-lg"
+            onClick={props.tweetQoute}
+          >
+            Tweet this Quote
+          </button>
+        </div>
       </div>
     </div>
   </Fragment>
