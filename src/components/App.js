@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-23T11:19:57+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-01T19:09:45+01:00
+ * @Last modified time: 2019-01-03T17:02:54+01:00
  */
 
 import React, { Component } from "react";
@@ -33,13 +33,23 @@ class App extends Component {
       )
       .then(res => {
         console.log(res.data);
-        this.setState({
-          newQuote: {
-            quoteText: res.data.quoteText,
-            quoteAuthor: res.data.quoteAuthor,
-            color: "#" + Math.floor(Math.random() * 16777215).toString(16)
-          }
-        });
+        if (res.data.quoteText === undefined) {
+          this.setState({
+            newQuote: {
+              quoteText: "Corrupted format , click again please",
+              quoteAuthor: null,
+              color: "#" + Math.floor(Math.random() * 16777215).toString(16)
+            }
+          });
+        } else {
+          this.setState({
+            newQuote: {
+              quoteText: res.data.quoteText,
+              quoteAuthor: res.data.quoteAuthor,
+              color: "#" + Math.floor(Math.random() * 16777215).toString(16)
+            }
+          });
+        }
       });
   }
   tweetQoute = () => {
@@ -67,7 +77,12 @@ class App extends Component {
           minWidth: "100%"
         }}
       >
-        <div className="quotes" style={{ marginTop: "20px" }}>
+        <div
+          className="quotes"
+          style={{
+            margin: "30px"
+          }}
+        >
           <QuoteMachine
             newQuote={this.state.newQuote}
             getRandQuote={this.getRandQuote}
