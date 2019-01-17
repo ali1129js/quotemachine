@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-24T08:34:29+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-01T20:05:00+01:00
+ * @Last modified time: 2019-01-17T16:41:56+01:00
  */
 
 .App {
@@ -10,4 +10,10 @@
 }
 .quotes {
   margin: 0 auto;
+}
+.jumbotron {
+  margin-top:50px;
+  padding: 25px 10px 0 10px;
+  box-shadow: 10px 10px 5px black ;
+  border-radius: 25px;
 }

@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-12-24T12:03:11+01:00
  * @Last modified by:   Ali
- * @Last modified time: 2019-01-03T16:42:31+01:00
+ * @Last modified time: 2019-01-17T16:24:19+01:00
  */
 import React, { Fragment } from "react";
 
@@ -12,7 +12,9 @@ const QuoteMachine = props => (
       <div className="row">
         <div className="col-sm">
           <div className="jumbotron jumbotron-fluid">
-            <h5 className="display-5">{props.newQuote.quoteText}</h5>
+            <h5 className="display-5">
+              <i className="fas fa-quote-left"> {props.newQuote.quoteText} </i>
+            </h5>
             <p className="lead"> {props.newQuote.quoteAuthor}</p>
             <hr className="my-4" />
             <button
