@@ -29,11 +29,11 @@ class App extends Component {
   getRandQuote() {
     axios
       .get(
-        "https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"
+        "https://dummyjson.com/quotes/random"
       )
       .then(res => {
         console.log(res.data);
-        if (res.data.quoteText === undefined) {
+        if (res.data.quote === undefined) {
           this.setState({
             newQuote: {
               quoteText: "Corrupted format , click again please",
@@ -44,13 +44,22 @@ class App extends Component {
         } else {
           this.setState({
             newQuote: {
-              quoteText: res.data.quoteText,
-              quoteAuthor: res.data.quoteAuthor,
+              quoteText: res.data.quote,
+              quoteAuthor: res.data.author,
               color: "#" + Math.floor(Math.random() * 16777215).toString(16)
             }
           });
         }
-      });
+      })
+      .catch(() =>
+        this.setState({
+          newQuote: {
+            quoteText: "Could not load a quote, click again please",
+            quoteAuthor: null,
+            color: "#" + Math.floor(Math.random() * 16777215).toString(16)
+          }
+        })
+      );
   }
   tweetQoute = () => {
     const text = this.state.newQuote.quoteText;
